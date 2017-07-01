@@ -9,6 +9,8 @@ app.set("view engine","html");
 app.set("views",path.resolve("views"));
 app.engine("html",require("ejs").__express);
 
+app.use(express.static("node_modules"));
+
 app.use("/user",user);
 app.use("/category",category);
 app.use("/article",article);
