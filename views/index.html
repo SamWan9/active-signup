@@ -1,3 +1,24 @@
 <%include ./include/header.html%>
-<h1>首页</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>首页</h1>
+            <%articles.forEach((item,index)=>{%>
+                <div class="media">
+                    <div class="media-left">
+                        <a href=""><img class="media-object avatar" src="<%=item.author.avatar%>" alt=""></a>
+                    </div>
+                    <div class="media-body">
+                        <h3 class="media-heading">
+                            <a href="/article/detail/<%=item._id%>"><%=item.title%></a>
+                        </h3>
+                        <p><%=item.content%></p>
+                        <p>作者：<%=item.author.username%> | 发表时间：<%=item.createAt.toLocaleString()%></p>
+                    </div>
+                </div>
+            <%});%>
+        </div>
+    </div>
+</div>
+
 <%include ./include/footer.html%>
