@@ -1,12 +1,13 @@
 const express=require("express");
 const router=express.Router();
+const {checkLogin}=require("../authware");
 
-router.get("/add",(req,res)=>{
-    res.render("user/signup",{title: "注册",content: "用户注册"});
+router.get("/add",checkLogin,(req,res)=>{
+    res.render("user/signup",{title: "增加文章"});
 });
 
-router.get("/delete/:id",(req,res)=>{
-    res.render("user/signup",{title: "注册",content: "用户注册"});
+router.get("/delete/:id",checkLogin,(req,res)=>{
+    res.render("user/signup",{title: "删除文章"});
 });
 
 module.exports=router;
