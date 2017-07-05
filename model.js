@@ -17,6 +17,7 @@ exports.Category=con.model("Category",new mongoose.Schema({
 exports.Article=con.model("Article",new mongoose.Schema({
     title: String,
     content: String,
+    pv:{type:Number,default:0},
     category: {type: ObjectId, ref: "Category"},
     author: {type: ObjectId, ref: "User"},  //外键：其它集合的主键
     createAt: {type: Date, default: Date.now}

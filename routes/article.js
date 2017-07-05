@@ -28,13 +28,15 @@ router.post("/add", checkLogin, (req, res) => {
 });
 
 router.get("/detail/:id", (req, res) => {
-    let id = req.params.id;
-    Article.findById(id).populate("category").exec((err, doc) => {
+    let _id = req.params.id;
+    Article.update({_id}, {$inc: {pv: 1}}, err => {
         if (err) {
             req.flash("error", err);
-            res.redirect("back");
+            req.redirect("back");
         } else {
-            res.render("article/detail", {title: "文章内容", article: doc});
+            Article.findById(_id).populate('category').exec((err, article) => {
+                res.render('article/detail', {title: '文章详情', article})
+            });
         }
     });
 });
@@ -73,14 +75,14 @@ router.get("/update/:id", checkLogin, (req, res) => {
 
 router.post("/update/:id", checkLogin, (req, res) => {
     let newArticle = req.body;
-    let _id=req.params.id;
-    newArticle.author=req.session.user._id;
-    Article.update({_id},newArticle,(err)=>{
-        if(err){
+    let _id = req.params.id;
+    newArticle.author = req.session.user._id;
+    Article.update({_id}, newArticle, (err) => {
+        if (err) {
             req.flash("error", err);
             res.redirect("back");
-        }else {
-            req.flash("success","修改成功");
+        } else {
+            req.flash("success", "修改成功");
             res.redirect("/");
         }
     });
