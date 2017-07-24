@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let con = mongoose.createConnection("mongodb://127.0.0.1/myBlog");
+let con = mongoose.createConnection("mongodb://127.0.0.1/activeSinup");
 let ObjectId = mongoose.Schema.Types.ObjectId;
 
 exports.User = con.model("User", new mongoose.Schema({
