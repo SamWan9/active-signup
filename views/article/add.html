@@ -1,18 +1,18 @@
 <%include ../include/header.html%>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
             <form method="post" class="form-horizontal">
                 <div class="form-group row">
-                    <label for="title" class="control-label col-md-2">文章名称</label>
-                    <div class="col-md-10 input-group">
+                    <label for="title" class="control-label col-md-1">动态名称</label>
+                    <div class="col-md-11 input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
                         <input required name="title" type="text" class="form-control" id="title" />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="category" class="control-label col-md-2">文章类型</label>
-                    <div class="col-md-10 input-group">
+                    <label for="category" class="control-label col-md-1">活动类型</label>
+                    <div class="col-md-11 input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
                         <select name="category" class="form-control" id="category">
                             <%categories.forEach((item,index)=>{%>
@@ -22,10 +22,10 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="content" class="control-label col-md-2">文章内容</label>
-                    <div class="col-md-10 input-group">
+                    <label for="content" class="control-label col-md-1">文章内容</label>
+                    <div class="col-md-11 input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea rows="10" required name="content" class="form-control" id="content"></textarea>
+                        <textarea rows="15" required name="content" class="form-control" id="content"></textarea>
                     </div>
                 </div>
                 <div class="form-group">

@@ -13,6 +13,12 @@ router.get("/add",checkLogin,(req,res)=>{
     res.render("category/add",{title: "新增列表"});
 });
 
+router.get("/introduce",(req,res)=>{
+    Category.find({},(err,result)=>{
+        res.render("category/introduce",{title: "活动简介",categories:result});
+    });
+});
+
 router.post("/add",checkLogin,(req,res)=>{
     let category=req.body;
     Category.findOne(category,(err,result)=>{

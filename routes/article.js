@@ -3,6 +3,32 @@ const router = express.Router();
 const {checkLogin} = require("../authware");
 const {Article, Category} = require("../model");
 
+router.get("/list", checkLogin, (req, res)=>{
+    let user=req.session.user;
+
+    let {keyword,pageNum,pageSize} = req.query;
+    pageNum = isNaN(pageNum)?1:parseInt(pageNum);//当前页码
+    pageSize = 3;//每页的条数
+    let query = {author: user._id};
+    if(keyword){
+        query.title = new RegExp(keyword);
+    }
+
+    //populate一个字段表示把一个字段从ID转成对象
+    Article.count(query,(err,count)=>{
+        Article.find(query).sort({createAt:-1}).skip((pageNum-1)*pageSize).limit(pageSize).populate('author').exec((err,articles)=>{
+            res.render('article/list',{
+                title:'我的动态',
+                keyword,
+                totalPage:Math.ceil(count/pageSize),
+                pageNum,
+                pageSize,
+                articles
+            });
+        });
+    });
+});
+
 router.get("/add", checkLogin, (req, res) => {
     Category.find({}, (err, categories) => {
         if (err) {

@@ -1,18 +1,18 @@
 <%include ../include/header.html%>
 <div class="container">
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <a href="/category/add" class="btn btn-primary btn-sm">增加分类</a>
+        <div class="col-md-12">
+            <a href="/category/add" class="btn btn-primary btn-sm pull-right">活动报名</a>
             <table class="table table-striped">
                 <thead class="text-center">
-                <th>分类名称</th>
+                <th>已参加活动</th>
                 <th>操作</th>
                 </thead>
                 <tbody>
                 <%categories.forEach((item,index)=>{%>
                     <tr>
                         <td><%=item.name%></td>
-                        <td><a href="/category/delete/<%=item._id%>" class="btn btn-danger btn-xs">删除</a></td>
+                        <td><a href="/category/delete/<%=item._id%>" class="btn btn-danger btn-xs">取消报名</a></td>
                     </tr>
                 <%});%>
 

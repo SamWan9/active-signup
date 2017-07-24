@@ -1,4 +1,4 @@
-## 基于express实现的博客demo
+## 基于express实现的活动报名与管理demo
 
 > 技术栈：node + express + ejs + session + mongodb
 
@@ -8,4 +8,4 @@
 
 ### npm start localhost服务开启，监听3000端口
 
-本demo主要实现了注册、登录、发布/修改/删除文章，不同用户对于文章的管理权限。主要练习express，session，mongodb的运用。
+本demo主要实现了注册、登录、选择参与活动。参与活动后可以发布/修改/删除动态，不同用户对于动态的管理权限。主要练习express，session，mongodb的运用。

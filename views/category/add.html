@@ -4,15 +4,19 @@
         <div class="col-md-6 col-md-offset-3">
             <form method="post" class="form-horizontal">
                 <div class="form-group row">
-                    <label for="name" class="control-label col-md-2">分类名称</label>
+                    <label for="name" class="control-label col-md-2">选择活动</label>
                     <div class="col-md-10 input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
-                        <input required name="name" type="text" class="form-control" id="name" />
+                        <select name="name" class="form-control" id="name">
+                            <option value="荧光夜跑">荧光夜跑</option>
+                            <option value="九峰山春游">九峰山春游</option>
+                        </select>
+                        <!--<input required name="name" type="text" class="form-control" id="name" />-->
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="pull-right">
-                        <button class="btn btn-primary">添加</button>
+                        <button class="btn btn-primary">报名</button>
                     </div>
                 </div>
             </form>

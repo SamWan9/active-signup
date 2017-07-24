@@ -6,7 +6,7 @@ router.get("/", (req, res) => {
 
     let {keyword,pageNum,pageSize} = req.query;
     pageNum = isNaN(pageNum)?1:parseInt(pageNum);//当前页码
-    pageSize = isNaN(pageSize)?3:parseInt(pageSize);//每页的条数
+    pageSize = 3;//每页的条数
     let query = {};
     if(keyword){
         query.title = new RegExp(keyword);
@@ -21,7 +21,8 @@ router.get("/", (req, res) => {
                 totalPage:Math.ceil(count/pageSize),
                 pageNum,
                 pageSize,
-                articles});
+                articles
+            });
         });
     });
 });
